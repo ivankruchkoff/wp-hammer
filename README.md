@@ -7,42 +7,17 @@
 __WARNING__ All changes are final and modify your site DB. Make sure you take a backup of your database __BEFORE__ you play around with the tool ``wp db export``
 
 ## Before You Begin ##
-Before you do anything, composer install / composer update, to fetch the dependencies.
+Make a copy of your database.
 
 ## About ##
 
 This tool will help you work on a client's site without having to worry about any of their user's personal information (emails, post content etc) being hosted on your dev environment.
 
 ## Installation ##
-### 1. Fetch and build the package ###
-```
-cd ~/
-git clone https://github.com/10up/wp-hammer.git 
-cd wp-hammer
-composer install
-```
+Make sure you have [wp-cli](http://wp-cli.org/) installed and in your $PATH. Following that, run this command in your terminal:
 
-### 2. Choose install Method ###
-You can install it as a plugin:
-```
-cd wp-content/plugins
-mv ~/wp-hammer .
-wp plugin activate wp-hammer
-wp ha
-```
+`wp package install ivankruchkoff/wp-hammer`
 
-
-You can call it from the command line
-```
-wp --require=~/wp-hammer/wp-hammer.php
-```
-
-You can add it to your [wp-cli config](http://wp-cli.org/config/).
-
-You can add it as an alias in your `.bashrc`:
-```
-alias hammer='wp --require=$HOME/wp-hammer/wp-hammer.php'
-```
 
 With ``wp ha`` you can:
 
@@ -50,7 +25,11 @@ With ``wp ha`` you can:
 ``wp ha -f users.user_email='ivan.k+__ID__@10up.com'``
 
 ### Clean up user passwords. ###
+To auto generate passwords:
 ``wp ha -f users.user_pass=auto``
+
+To set all passwords to password:
+``wp ha -f users.user_pass=password``
 
 ### Replace posts with dummy posts. ###
 ``wp ha -f posts.post_content=markov,posts.post_title=random``
@@ -63,7 +42,7 @@ With ``wp ha`` you can:
 
 
 Or you can chain tasks together like in the following  example, which we'll break down in parts as the syntax is fairly powerful
-wp ha -f posts.post_author=auto,users.user_pass=auto,users.user_email='ivan.k+__ID__@10up.com',posts.post_title=ipsum,posts.post_content=markov -l users=10,posts=100.post_date
+`wp ha -f posts.post_author=auto,users.user_pass=auto,users.user_email='ivan.k+__ID__@10up.com',posts.post_title=ipsum,posts.post_content=markov -l users=10,posts=100.post_date`
 
 ``wp ha``
 How you invoke the command
