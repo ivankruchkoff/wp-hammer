@@ -18,6 +18,7 @@ Make sure you have [wp-cli](http://wp-cli.org/) installed and in your $PATH. Fol
 
 `wp package install ivankruchkoff/wp-hammer`
 
+## Usage ##
 
 With ``wp ha`` you can:
 
