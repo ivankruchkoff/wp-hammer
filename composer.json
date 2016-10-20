@@ -1,6 +1,7 @@
 {
     "name": "ivankruchkoff/wp-hammer",
     "description": "WP CLI Hammer Command to remove personally identifiable information and extra content for dev/test/stage purposes",
+    "type": "wp-cli-package",
     "homepage": "https://github.com/10up/wp-hammer",
     "require": {
         "joshtronic/php-loremipsum": "dev-master",
