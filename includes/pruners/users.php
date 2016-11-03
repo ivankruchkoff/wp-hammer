@@ -42,7 +42,6 @@ function pruner( $limit, $sort_type = false ) {
 					$keep_ids[] = $keep_id;
 					$remaining--;
 				}
-
 			}
 		}
 
@@ -59,9 +58,7 @@ function pruner( $limit, $sort_type = false ) {
 				wp_delete_user( $user_to_delete->ID, $new_author_id );
 			}
 		}
-
 	}
-
 }
 
 add_action( 'wp_hammer_run_prune_users', __NAMESPACE__ . '\pruner' );
