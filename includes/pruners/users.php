@@ -42,7 +42,6 @@ function pruner( $limit, $sort_type = false ) {
 					$keep_ids[] = $keep_id;
 					$remaining--;
 				}
-
 			}
 		}
 
@@ -51,16 +50,15 @@ function pruner( $limit, $sort_type = false ) {
 		if ( $users_to_delete->total_users ) {
 			require_once( ABSPATH . 'wp-admin/includes/user.php' );
 
+			// Determine the author ID to use for post reassignment.
+			$new_author_id = ! empty( $keep_ids ) ? min( $keep_ids ) : null;
 			foreach( $users_to_delete->results as $user_to_delete ) {
-				$new_author_id = min( $keep_ids );
 				\WP_CLI::line( "Deleting user {$user_to_delete->ID} and reassigning their posts to user ID: $new_author_id" );
 				// Delete user and reassign their posts to the smallest user ID that will remain.
 				wp_delete_user( $user_to_delete->ID, $new_author_id );
 			}
 		}
-
 	}
-
 }
 
 add_action( 'wp_hammer_run_prune_users', __NAMESPACE__ . '\pruner' );
