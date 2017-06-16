@@ -11,7 +11,7 @@ use WP_CLI\Hammer\ContentFormatter;
  * wp hammer is a command to clean your environment of personally identifiable information, remove extra content and prepare it for a staging / development environment.
  *
  */
-class Command extends CommandWithDBObject {
+class Command extends \WP_CLI_Command {
 
 	protected $settings;
 
