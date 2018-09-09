@@ -29,6 +29,19 @@ class Settings {
 	 * These limits are processed by the pruners, pruners/users.php will handle the users table etc.
 	 */
 	public $limits;
+
+	/**
+	 * @var array of tables to sanitize
+	 * These are specified via -s parameter.
+	 *
+	 * e.g. array(
+	 *   "options",
+	 *   "usermeta",
+	 * );
+	 * These tables are processed by the sanitizers, sanitizers/options.php will handle the options table etc.
+	 */
+	public $sanitizes;
+
 	/**
 	 * @var bool whether or not we make changes to the database or simply do a dry run.
 	 */
@@ -48,6 +61,9 @@ class Settings {
 					break;
 				case '-l':
 					$this->parse_argument( $args, 'limits' );
+					break;
+				case '-s':
+					$this->parse_argument( $args, 'sanitizes' );
 					break;
 			}
 		}
