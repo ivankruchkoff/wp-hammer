@@ -84,9 +84,7 @@ wp db export staging.sql
 
 ## Credits
 
-Created by Ivan Kruchkoff ( [@ivankk](https://profiles.wordpress.org/ivankk)), at [10up.com](http://10up.com).
-
-Think this is a cool project? Love working with WordPress? [10up is hiring!](http://10up.com/careers/?utm_source=wphammer&utm_medium=community&utm_campaign=oss-code)
+Created by Ivan Kruchkoff ([@ivankk](https://profiles.wordpress.org/ivankk)), at [10up.com](http://10up.com).
 
 ## Like what you see?
 
