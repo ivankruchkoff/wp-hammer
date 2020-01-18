@@ -65,7 +65,7 @@ function user_pass( $user, $formatter ) {
 		debug_print_backtrace();
 	}
 	if ( 'auto' === $formatter ) {
-		$new_password = bin2hex( mcrypt_create_iv( 12, MCRYPT_DEV_URANDOM ) );
+		$new_password = generate_random_password();
 		\WP_CLI::line( "New password for user {$user[ 'ID' ]} is {$new_password}" );
 		$user[ 'user_pass' ] = wp_hash_password( $new_password );
 	} else {
@@ -73,6 +73,25 @@ function user_pass( $user, $formatter ) {
 		$user[ 'user_pass' ] = wp_hash_password( $formatter );
 	}
 	return $user;
+}
+
+/**
+ * Generate a random password. Support both PHP 5.6 and PHP 7.0+.
+ *
+ * @return string
+ */
+function generate_random_password() {
+	$password = 'password';
+
+	if ( function_exists( 'random_bytes' ) ) {
+		$password = bin2hex( random_bytes( 12 ) );
+	}
+
+	if ( function_exists( 'mcrypt_create_iv' ) ) {
+		$password = bin2hex( mcrypt_create_iv( 12, MCRYPT_DEV_URANDOM ) );
+	}
+
+	return $password;
 }
 
 add_filter( 'wp_hammer_run_formatter_filter_users_user_email', __NAMESPACE__ . '\user_email', null , 2 );
