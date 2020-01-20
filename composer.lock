@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "167b85449c30643bd5a8bf84df999d6a",
+    "content-hash": "52eb6de72a923093e866ef8c58772fa0",
     "packages": [
         {
             "name": "heidilabs/markov-php",
-            "version": "dev-master",
+            "version": "0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/heidilabs/markov-php.git",
-                "reference": "d29546f0a8f2ec831e12001d43eef1e79b950c24"
+                "reference": "288d5722b0e333fc1acd77df98c7e085b0acb7ac"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/heidilabs/markov-php/zipball/d29546f0a8f2ec831e12001d43eef1e79b950c24",
-                "reference": "d29546f0a8f2ec831e12001d43eef1e79b950c24",
+                "url": "https://api.github.com/repos/heidilabs/markov-php/zipball/288d5722b0e333fc1acd77df98c7e085b0acb7ac",
+                "reference": "288d5722b0e333fc1acd77df98c7e085b0acb7ac",
                 "shasum": ""
             },
             "type": "library",
@@ -41,11 +41,11 @@
             "keywords": [
                 "markov"
             ],
-            "time": "2015-08-19T10:28:49+00:00"
+            "time": "2015-06-04T11:47:54+00:00"
         },
         {
             "name": "joshtronic/php-loremipsum",
-            "version": "dev-master",
+            "version": "1.0.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/joshtronic/php-loremipsum.git",
@@ -92,23 +92,23 @@
         },
         {
             "name": "roderik/pwgen-php",
-            "version": "dev-master",
+            "version": "0.1.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/roderik/pwgen-php.git",
-                "reference": "b9d829d3a85f72d6f0ce11d56b1df9ccdffcf356"
+                "reference": "19763b860eeb94b818cfc67fd6a47b697594e1da"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/roderik/pwgen-php/zipball/b9d829d3a85f72d6f0ce11d56b1df9ccdffcf356",
-                "reference": "b9d829d3a85f72d6f0ce11d56b1df9ccdffcf356",
+                "url": "https://api.github.com/repos/roderik/pwgen-php/zipball/19763b860eeb94b818cfc67fd6a47b697594e1da",
+                "reference": "19763b860eeb94b818cfc67fd6a47b697594e1da",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.3"
             },
             "require-dev": {
-                "phpunit/phpunit": "^4.8 || ^5.7 || ^6.5"
+                "phpunit/phpunit": "^6.4"
             },
             "type": "library",
             "autoload": {
@@ -135,17 +135,13 @@
                 "generator",
                 "password"
             ],
-            "time": "2018-07-14T05:08:09+00:00"
+            "time": "2017-12-01T08:47:54+00:00"
         }
     ],
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {
-        "joshtronic/php-loremipsum": 20,
-        "roderik/pwgen-php": 20,
-        "heidilabs/markov-php": 20
-    },
+    "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": [],
