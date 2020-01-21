@@ -81,17 +81,11 @@ function user_pass( $user, $formatter ) {
  * @return string
  */
 function generate_random_password() {
-	$password = 'password';
-
 	if ( function_exists( 'random_bytes' ) ) {
-		$password = bin2hex( random_bytes( 12 ) );
+		return bin2hex( random_bytes( 12 ) );
 	}
 
-	if ( function_exists( 'mcrypt_create_iv' ) ) {
-		$password = bin2hex( mcrypt_create_iv( 12, MCRYPT_DEV_URANDOM ) );
-	}
-
-	return $password;
+	return bin2hex( mcrypt_create_iv( 12, MCRYPT_DEV_URANDOM ) );
 }
 
 add_filter( 'wp_hammer_run_formatter_filter_users_user_email', __NAMESPACE__ . '\user_email', null , 2 );
