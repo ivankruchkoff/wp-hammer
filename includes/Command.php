@@ -26,7 +26,7 @@ class Command extends \WP_CLI_Command {
 	 * [-l <limit1>,<limit2>,...<limitN>]
 	 * : Which tables to limit, the maximum number of rows to keep and the method of determining which rows to keep.
 	 *
-	 * [-s <sanitize1>,<sanitize2>,...<sanitizeN>]
+	 * [-s <sanitizer1>,<sanitizer2>,...<sanitizerN>]
 	 * : Which tables to sanitize, by removing all rows that are not in a safelist of non-sensitive options. The safelists can be modified with the `wp_hammer_safe_{table}_names` filters.
 	 *
 	 * [--dry-run]
@@ -81,8 +81,8 @@ class Command extends \WP_CLI_Command {
 			$formats = new ContentFormatter( $this->settings->formats, $this->settings->dry_run );
 			$formats->run();
 		}
-		if ( false !== $this->settings->sanitizes && ! is_null( $this->settings->sanitizes ) ) {
-			$formats = new Sanitize( $this->settings->sanitizes, $this->settings->dry_run );
+		if ( false !== $this->settings->sanitizers && ! is_null( $this->settings->sanitizers ) ) {
+			$formats = new Sanitize( $this->settings->sanitizers, $this->settings->dry_run );
 			$formats->run();
 		}
 	}
@@ -90,7 +90,7 @@ class Command extends \WP_CLI_Command {
 	function show_usage() {
 		\WP_CLI::line( "usage: wp hammer -f <format1>,<format2>,...<formatN>" );
 		\WP_CLI::line( "   or: wp hammer -l <limit1>,<limit2>,...<limitN>" );
-		\WP_CLI::line( "   or: wp hammer -l <sanitizer1>,<sanitizer2>,...<sanitizerN>" );
+		\WP_CLI::line( "   or: wp hammer -s <sanitizer1>,<sanitizer2>,...<sanitizerN>" );
 		\WP_CLI::line( "   or: wp hammer -l <limit1>,...<limitN> -f <format1>,...<formatN> -s <sanitizer1>,...<sanitizerN>" );
 		\WP_CLI::line( "" );
 		\WP_CLI::line( "See 'wp help hammer' for more information on usage." );

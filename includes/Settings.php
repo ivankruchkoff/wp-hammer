@@ -40,7 +40,7 @@ class Settings {
 	 * );
 	 * These tables are processed by the sanitizers, sanitizers/options.php will handle the options table etc.
 	 */
-	public $sanitizes;
+	public $sanitizers;
 
 	/**
 	 * @var bool whether or not we make changes to the database or simply do a dry run.
@@ -63,7 +63,7 @@ class Settings {
 					$this->parse_argument( $args, 'limits' );
 					break;
 				case '-s':
-					$this->parse_argument( $args, 'sanitizes' );
+					$this->parse_argument( $args, 'sanitizers' );
 					break;
 			}
 		}

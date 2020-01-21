@@ -33,8 +33,8 @@ class SettingsTest extends WP_HammerTestCase {
      * Check Sanitizers
      */
     public function testSanitizers() {
-        $this->assertEquals( 2, count( $this->settings->sanitizes ), 'Valid Sanitizer Count' );
-        $this->assertEquals( 'options', $this->settings->sanitizes[0], 'Valid options parse');
-        $this->assertEquals( 'usermeta', $this->settings->sanitizes[1], 'Valid usermeta parse');
+        $this->assertEquals( 2, count( $this->settings->sanitizers ), 'Valid Sanitizer Count' );
+        $this->assertEquals( 'options', $this->settings->sanitizers[0], 'Valid options parse');
+        $this->assertEquals( 'usermeta', $this->settings->sanitizers[1], 'Valid usermeta parse');
     }
 }
