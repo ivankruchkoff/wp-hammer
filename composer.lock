@@ -1,0 +1,149 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "52eb6de72a923093e866ef8c58772fa0",
+    "packages": [
+        {
+            "name": "heidilabs/markov-php",
+            "version": "0.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/heidilabs/markov-php.git",
+                "reference": "288d5722b0e333fc1acd77df98c7e085b0acb7ac"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/heidilabs/markov-php/zipball/288d5722b0e333fc1acd77df98c7e085b0acb7ac",
+                "reference": "288d5722b0e333fc1acd77df98c7e085b0acb7ac",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Erika Heidi",
+                    "email": "erika@erikaheidi.com"
+                }
+            ],
+            "description": "A simple markov chain experiment",
+            "homepage": "https://github.com/heidilabs/markov-php",
+            "keywords": [
+                "markov"
+            ],
+            "time": "2015-06-04T11:47:54+00:00"
+        },
+        {
+            "name": "joshtronic/php-loremipsum",
+            "version": "1.0.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/joshtronic/php-loremipsum.git",
+                "reference": "cdb2e05cf4f48822920e5fb85c0983a155109885"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/joshtronic/php-loremipsum/zipball/cdb2e05cf4f48822920e5fb85c0983a155109885",
+                "reference": "cdb2e05cf4f48822920e5fb85c0983a155109885",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3"
+            },
+            "require-dev": {
+                "php-coveralls/php-coveralls": ">=1",
+                "phpunit/phpunit": ">=4"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "joshtronic\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Josh Sherman",
+                    "email": "hello@joshtronic.com",
+                    "homepage": "https://joshtronic.com"
+                }
+            ],
+            "description": "Lorem ipsum generator in PHP without dependencies",
+            "homepage": "https://github.com/joshtronic/php-loremipsum",
+            "keywords": [
+                "generator",
+                "ipsum",
+                "lorem"
+            ],
+            "time": "2020-01-10T03:49:13+00:00"
+        },
+        {
+            "name": "roderik/pwgen-php",
+            "version": "0.1.8",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/roderik/pwgen-php.git",
+                "reference": "19763b860eeb94b818cfc67fd6a47b697594e1da"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/roderik/pwgen-php/zipball/19763b860eeb94b818cfc67fd6a47b697594e1da",
+                "reference": "19763b860eeb94b818cfc67fd6a47b697594e1da",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^6.4"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "PWGen\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL"
+            ],
+            "authors": [
+                {
+                    "name": "Theodore Ts'o",
+                    "email": "tytso@alum.mit.edu"
+                },
+                {
+                    "name": "Superwayne",
+                    "email": "superwayne@superwayne.org"
+                }
+            ],
+            "description": "pwgen-php is a simple PHP class which aims to clone the GNU pwgen functionality.",
+            "keywords": [
+                "generator",
+                "password"
+            ],
+            "time": "2017-12-01T08:47:54+00:00"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": [],
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": []
+}

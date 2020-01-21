@@ -3,7 +3,7 @@
 namespace WP_CLI\Hammer\Generators\Generic;
 use WP_CLI\Iterators\Query;
 use joshtronic\LoremIpsum;
-use PWGen;
+use PWGen\PWGen;
 use MarkovPHP\WordChain;
 
 /**

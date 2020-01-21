@@ -1,11 +1,12 @@
 <?php
 /**
  * Plugin Name: wp hammer
- * Plugin URI: http://example.com
- * Description: This plugin adds a wp-cli ha command to clean your environment and prepare it for staging / development by removing Personally Identifiable Information
+ * Plugin URI: https://github.com/10up/wp-hammer
+ * Description: This plugin adds a wp-cli ha command to clean your environment and prepare it for staging / development by removing Personally Identifiable Information.
  * Version: 1.0.1
  * Author: Ivan Kruchkoff
- * License: BSD
+ * License: MIT
+ * License URI: https://opensource.org/licenses/MIT
  */
 
 if ( ! defined('WP_CLI') || ! WP_CLI ) {

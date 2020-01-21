@@ -72,11 +72,28 @@ class WP_HammerTestCase extends WP_UnitTestCase {
 
 		$this->comment_2 = $this->factory()->comment->create( $comment );
 
+		update_option( 'secure_auth_key', '8d6rJj)GY2wH>7XfZV3D3+h,26em4u{n^fhkyzJA+Lpwfqy2VBQ+ozPnxGqD>M}q' );
+		update_option( 'cloudflare_api_key', 'jyj=jBY6xc}Mh,FLa6AczhnUKp=tsK9d78{9iE}6Px6ptV9uK?CcH2#CkJ.*bpbE' );
+		set_transient( 'secret_transient', 'secret', DAY_IN_SECONDS );
+
+		$session_tokens = array(
+			'VfbeB3emgckN4DRpoU6tEg8U8KvTEPkZZqQmz38NV4nFhZokyRCbKD' => array(
+				'expiration' => time() + DAY_IN_SECONDS,
+				'ip'         => '127.0.0.1',
+				'login'      => time() - HOUR_IN_SECONDS,
+			),
+		);
+
+		update_user_meta( $this->author1, 'session_tokens', $session_tokens );
+		update_user_meta( $this->author1, 'googleauthenticator_secret', 'B&8hD{jV2ZBR8G4$rVc%' );
+
 		$args = array(
 				"-l",
 				"users=5,posts=100.post_date",
 				"-f",
 				"posts.post_author=auto,users.user_pass=auto,users.user_email=ivan+__ID__@kruchkoff.com,posts.post_title=ipsum,comments.comment_author_email=ivan+__comment_ID__@kruchkoff.com",
+				"-s",
+				"options,usermeta"
 		);
 		$assoc_args = array();
 		$this->settings = new WP_CLI\Hammer\Settings();

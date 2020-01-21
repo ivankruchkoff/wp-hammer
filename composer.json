@@ -4,9 +4,9 @@
     "type": "wp-cli-package",
     "homepage": "https://github.com/10up/wp-hammer",
     "require": {
-        "joshtronic/php-loremipsum": "dev-master",
-        "roderik/pwgen-php": "dev-master",
-        "heidilabs/markov-php": "dev-master"
+        "joshtronic/php-loremipsum": "1.0.5",
+        "roderik/pwgen-php": "0.1.8",
+        "heidilabs/markov-php": "0.4"
     },
     "autoload": {
         "psr-4": {
