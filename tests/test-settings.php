@@ -28,4 +28,13 @@ class SettingsTest extends WP_HammerTestCase {
         $this->assertEquals( 'users=5', $this->settings->limits[0], 'Valid table=limit parse');
         $this->assertEquals( 'posts=100.post_date', $this->settings->limits[1], 'Valid table=limit.column parse');
     }
+
+    /**
+     * Check Sanitizers
+     */
+    public function testSanitizers() {
+        $this->assertEquals( 2, count( $this->settings->sanitizers ), 'Valid Sanitizer Count' );
+        $this->assertEquals( 'options', $this->settings->sanitizers[0], 'Valid options parse');
+        $this->assertEquals( 'usermeta', $this->settings->sanitizers[1], 'Valid usermeta parse');
+    }
 }

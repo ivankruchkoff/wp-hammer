@@ -16,7 +16,7 @@ class Command extends \WP_CLI_Command {
 	protected $settings;
 
 	/**
-	 * Clean your site to change passwords, email addresses and remove unneeded posts.
+	 * Clean your site to change passwords and email addresses, and remove unneeded posts and sensitive data.
 	 *
 	 * ## OPTIONS
 	 *
@@ -26,13 +26,20 @@ class Command extends \WP_CLI_Command {
 	 * [-l <limit1>,<limit2>,...<limitN>]
 	 * : Which tables to limit, the maximum number of rows to keep and the method of determining which rows to keep.
 	 *
+	 * [-s <sanitizer1>,<sanitizer2>,...<sanitizerN>]
+	 * : Which tables to sanitize, by removing all rows that are not in a safelist of non-sensitive options. The safelists can be modified with the `wp_hammer_safe_{table}_names` filters.
+	 *
+	 * [--dry-run]
+	 * : Whether or not to modify the database.
+	 *
 	 * ## EXAMPLES
 	 *
 	 *     wp hammer -l users=5
 	 *     wp hammer -f posts.post_author=random,users.user_pass=auto,users.user_email='test+user__ID__@example.com'
 	 *     wp hammer -f posts.post_title=ipsum,posts.post_content=markov -l users=10,posts=100.post_date
+	 *     wp hammer -s options,usermeta
 	 *
-	 * @synopsis [<-f>] [<formats>] [<-l>] [<limits>]
+	 * @synopsis [<-f>] [<formats>] [<-l>] [<limits>] [<-s>] [<sanitizers>] [--dry-run]
 	 */
 	function __invoke( $args = array(), $assoc_args = array() ) {
 		if ( ! count( $args ) && ! count( $assoc_args ) ) {
@@ -42,10 +49,10 @@ class Command extends \WP_CLI_Command {
 		while ( ob_get_level() > 0 ) {
 			ob_end_flush();
 		}
-		// All content manipulators are stored in pruners, formatters, generators folders. They are namespaced, but not in classes, so we can't use
-		// the autoloader for them.
+		// All content manipulators are stored in pruners, formatters, sanitizers, generators folders. They are namespaced, but not in classes,
+		// so we can't use the autoloader for them.
 		// Also, because they need add_action/add_filter to load, we can only include them after WP has loaded, so it's not part of the autoloader.
-		$content_manipulators = glob( __DIR__ . '/{pruners,formatters,generators}/*.php', GLOB_BRACE);
+		$content_manipulators = glob( __DIR__ . '/{pruners,formatters,sanitizers,generators}/*.php', GLOB_BRACE );
 
 		foreach ( $content_manipulators as $content_manipulator ) {
 			require_once $content_manipulator;
@@ -74,12 +81,17 @@ class Command extends \WP_CLI_Command {
 			$formats = new ContentFormatter( $this->settings->formats, $this->settings->dry_run );
 			$formats->run();
 		}
+		if ( false !== $this->settings->sanitizers && ! is_null( $this->settings->sanitizers ) ) {
+			$formats = new Sanitize( $this->settings->sanitizers, $this->settings->dry_run );
+			$formats->run();
+		}
 	}
 
 	function show_usage() {
 		\WP_CLI::line( "usage: wp hammer -f <format1>,<format2>,...<formatN>" );
 		\WP_CLI::line( "   or: wp hammer -l <limit1>,<limit2>,...<limitN>" );
-		\WP_CLI::line( "   or: wp hammer -l <limit1>,...<limitN> -f <format1>,...<formatN>" );
+		\WP_CLI::line( "   or: wp hammer -s <sanitizer1>,<sanitizer2>,...<sanitizerN>" );
+		\WP_CLI::line( "   or: wp hammer -l <limit1>,...<limitN> -f <format1>,...<formatN> -s <sanitizer1>,...<sanitizerN>" );
 		\WP_CLI::line( "" );
 		\WP_CLI::line( "See 'wp help hammer' for more information on usage." );
 
